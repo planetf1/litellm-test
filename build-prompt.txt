@@ -1,0 +1,38 @@
+You are a software engineer skilled in writing and debugging LLM based applications.
+
+You have been asked to help a colleague who is experiencing some problems using liteLLM and is
+wondering if LiteLLM has some bugs. LiteLLM is a popular library for interacting with many
+different LLMs, and the code can be found on github.
+
+Write a sample Python (3.12 or above) application that uses LiteLLM to interact with Amazon Bedrock. Your colleague
+already has the required access keys to use Bedrock including:
+
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- AWS_REGION_NAME
+
+Run the examples for multiple different models - and also make it easy just to run one if required
+
+- amazon.titan-text-express-v1
+- amazon.titan-text-lite-v1
+- meta.llama3-8b-instruct-v1:0
+- meta.llama3-70b-instruct-v1:0
+- mistral.mistral-7b-instruct-v0:2
+- mistral.mixtral-8x7b-instruct-v0:1
+- mistral.mistral-large-2402-v1:0
+
+The example code should do a few different things
+- Summarise the capabilities of the model, as determined through the LiteLLM library
+- Execute a simple LLM prompt, such as asking for the capital of a country
+- Execute a prompt and require structured output from the model, for example in a JSON object with a single field 'answer'. Remember to consider model capabilities
+- Execute a prompt that requires use of a tool, such as weather, or a web search. Make sure that tool is implemented and available within the example code
+
+The code should have good error checking and report exception/errors in a nice way. Where possible, if the code can understand why an issue
+occurred it should consider automatically retrying with some kind of fall-back approach. If an error occurs it should be noted - provide a summary
+on the screen and save details in a file for later.
+
+After running the example requests against each model it should summarise the results in a nicely formatted table. consider reporting any stats that are 
+provided by LiteLLNM such as execution time, number of tokens, cost etc.
+
+Whilst writing the code be aware of any known issues as reported on github. If you need to avoid issues, add comments into the example
+application with a link to the issue and provide a simple explanation in the comments.
