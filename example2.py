@@ -95,30 +95,37 @@ def test_model(model_name):
                 }
             }
         }]
-        tool_prompt_response = litellm.completion(
-            model=model_name,
-            messages=[{"role": "user", "content": "What is the weather like in Brighton today? Please use the weather tool if available."}],
-            tools=tools, # Known issue: https://github.com/BerriAI/litellm/issues/1788 - Tool calls might not be fully supported or reliable in Bedrock through LiteLLM.
-            tool_choice="auto" # Let the model decide if tool is needed
-        )
+        try: # Wrap tool use in a try-except block
+            tool_prompt_response = litellm.completion(
+                model=model_name,
+                messages=[{"role": "user", "content": "What is the weather like in Brighton today? Please use the weather tool if available."}],
+                tools=tools, # Known issue: https://github.com/BerriAI/litellm/issues/1788 - Tool calls might not be fully supported or reliable in Bedrock through LiteLLM.
+                tool_choice="auto", # Let the model decide if tool is needed
+                drop_params=True # ADDED: Drop unsupported parameters for tool use
+            )
 
-        tool_response_content = tool_prompt_response.choices[0].message.content
-        tool_calls = tool_prompt_response.choices[0].message.tool_calls
+            tool_response_content = tool_prompt_response.choices[0].message.content
+            tool_calls = tool_prompt_response.choices[0].message.tool_calls
 
-        if tool_calls:
-            results["tool_use_result"] = "Tool Call Initiated"
-            # For simplicity, assuming only one tool call and function is weather_tool
-            function_name = tool_calls[0].function.name
-            function_args = json.loads(tool_calls[0].function.arguments)
+            if tool_calls:
+                results["tool_use_result"] = "Tool Call Initiated"
+                # For simplicity, assuming only one tool call and function is weather_tool
+                function_name = tool_calls[0].function.name
+                function_args = json.loads(tool_calls[0].function.arguments)
 
-            if function_name == "weather_tool":
-                weather_result = weather_tool(location=function_args["location"])
-                results["tool_use_result"] = f"Tool Use Response: {weather_result}"
+                if function_name == "weather_tool":
+                    weather_result = weather_tool(location=function_args["location"])
+                    results["tool_use_result"] = f"Tool Use Response: {weather_result}"
+                else:
+                    results["tool_use_result"] = "Tool Use Error: Unknown tool function called."
+
             else:
-                results["tool_use_result"] = "Tool Use Error: Unknown tool function called."
+                results["tool_use_result"] = f"Tool Use Response: No tool call made. Model response: {tool_response_content}"
 
-        else:
-            results["tool_use_result"] = f"Tool Use Response: No tool call made. Model response: {tool_response_content}"
+        except litellm.UnsupportedParamsError as e: # Catch UnsupportedParamsError specifically
+            results["tool_use_result"] = f"Tool Use Skipped: {e}" # Indicate tool use was skipped due to error
+        except litellm.BadRequestError as e: # Catch BadRequestError for models that explicitly reject tool use
+            results["tool_use_result"] = f"Tool Use Not Supported: {e}" # Indicate tool use is not supported by the model
 
 
         results["execution_time"] = time.time() - start_time
