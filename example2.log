@@ -1,0 +1,115 @@
+Starting LiteLLM Bedrock Model Tests...
+
+Testing model: amazon.titan-text-express-v1
+Finished testing model: amazon.titan-text-express-v1
+
+Testing model: amazon.titan-text-lite-v1
+Finished testing model: amazon.titan-text-lite-v1
+
+Testing model: meta.llama3-8b-instruct-v1:0
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+Finished testing model: meta.llama3-8b-instruct-v1:0
+
+Testing model: meta.llama3-70b-instruct-v1:0
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+Finished testing model: meta.llama3-70b-instruct-v1:0
+
+Testing model: mistral.mistral-7b-instruct-v0:2
+Finished testing model: mistral.mistral-7b-instruct-v0:2
+
+Testing model: mistral.mixtral-8x7b-instruct-v0:1
+Finished testing model: mistral.mixtral-8x7b-instruct-v0:1
+
+Testing model: mistral.mistral-large-2402-v1:0
+Finished testing model: mistral.mistral-large-2402-v1:0
+
+
+--- Test Results Summary ---
+
+Model: amazon.titan-text-express-v1
+Status: Success
+Execution Time: 4.18 seconds
+Tokens Used: 34
+Capabilities Summary: Model Capabilities: {'key': 'amazon.titan-text-express-v1', 'max_tokens': 8000, 'max_input_tokens': 42000, 'max_output_tokens': 8000, 'input_cost_per_token': 1.3e-06, 'cache_creation_input_token_cost': None, 'cache_read_input_token_cost': None, 'input_cost_per_character': None, 'input_cost_per_token_above_128k_tokens': None, 'input_cost_per_query': None, 'input_cost_per_second': None, 'input_cost_per_audio_token': None, 'output_cost_per_token': 1.7e-06, 'output_cost_per_audio_token': None, 'output_cost_per_character': None, 'output_cost_per_token_above_128k_tokens': None, 'output_cost_per_character_above_128k_tokens': None, 'output_cost_per_second': None, 'output_cost_per_image': None, 'output_vector_size': None, 'litellm_provider': 'bedrock', 'mode': 'chat', 'supports_system_messages': None, 'supports_response_schema': None, 'supports_vision': False, 'supports_function_calling': False, 'supports_tool_choice': False, 'supports_assistant_prefill': False, 'supports_prompt_caching': False, 'supports_audio_input': False, 'supports_audio_output': False, 'supports_pdf_input': False, 'supports_embedding_image_input': False, 'supports_native_streaming': None, 'tpm': None, 'rpm': None, 'supported_openai_params': ['max_tokens', 'max_completion_tokens', 'stream', 'stream_options', 'stop', 'temperature', 'top_p', 'extra_headers', 'response_format']}
+Simple Prompt Result: Simple Prompt Response: The capital of France is Paris. It is located in the country's north-central part.
+JSON Output Result: JSON Output Response (Parsed): Could not parse JSON, raw response: ```tabular-data-json
+{
+    "rows": [
+        {
+            "Answer": "Berlin"
+        }
+    ]
+}
+```
+Tool Use Result: Tool Use Response: No tool call made. Model response: The weather today in Brighton will be partly cloudy with an average temperature of 11 degrees Celsius.
+
+Model: amazon.titan-text-lite-v1
+Status: Success
+Execution Time: 3.08 seconds
+Tokens Used: 22
+Capabilities Summary: Model Capabilities: {'key': 'amazon.titan-text-lite-v1', 'max_tokens': 4000, 'max_input_tokens': 42000, 'max_output_tokens': 4000, 'input_cost_per_token': 3e-07, 'cache_creation_input_token_cost': None, 'cache_read_input_token_cost': None, 'input_cost_per_character': None, 'input_cost_per_token_above_128k_tokens': None, 'input_cost_per_query': None, 'input_cost_per_second': None, 'input_cost_per_audio_token': None, 'output_cost_per_token': 4e-07, 'output_cost_per_audio_token': None, 'output_cost_per_character': None, 'output_cost_per_token_above_128k_tokens': None, 'output_cost_per_character_above_128k_tokens': None, 'output_cost_per_second': None, 'output_cost_per_image': None, 'output_vector_size': None, 'litellm_provider': 'bedrock', 'mode': 'chat', 'supports_system_messages': None, 'supports_response_schema': None, 'supports_vision': False, 'supports_function_calling': False, 'supports_tool_choice': False, 'supports_assistant_prefill': False, 'supports_prompt_caching': False, 'supports_audio_input': False, 'supports_audio_output': False, 'supports_pdf_input': False, 'supports_embedding_image_input': False, 'supports_native_streaming': None, 'tpm': None, 'rpm': None, 'supported_openai_params': ['max_tokens', 'max_completion_tokens', 'stream', 'stream_options', 'stop', 'temperature', 'top_p', 'extra_headers', 'response_format']}
+Simple Prompt Result: Simple Prompt Response: Paris is the capital of France.
+JSON Output Result: JSON Output Response (Parsed): Could not parse JSON, raw response: ```tabular-data-json
+{"rows": [["Answer", "Berlin"]],
+["Answer", "Bonn"]]
+```Berlin
+Tool Use Result: Tool Use Response: No tool call made. Model response: As an LLM, this model does not have real-time access to the current weather. However, it can provide you with the weather forecast for today.
+
+Model: meta.llama3-8b-instruct-v1:0
+Status: Error - Error: litellm.BadRequestError: BedrockException - {"message":"This model doesn't support tool use."}
+Capabilities Summary: Model Capabilities: {'key': 'meta.llama3-8b-instruct-v1:0', 'max_tokens': 8192, 'max_input_tokens': 8192, 'max_output_tokens': 8192, 'input_cost_per_token': 3e-07, 'cache_creation_input_token_cost': None, 'cache_read_input_token_cost': None, 'input_cost_per_character': None, 'input_cost_per_token_above_128k_tokens': None, 'input_cost_per_query': None, 'input_cost_per_second': None, 'input_cost_per_audio_token': None, 'output_cost_per_token': 6e-07, 'output_cost_per_audio_token': None, 'output_cost_per_character': None, 'output_cost_per_token_above_128k_tokens': None, 'output_cost_per_character_above_128k_tokens': None, 'output_cost_per_second': None, 'output_cost_per_image': None, 'output_vector_size': None, 'litellm_provider': 'bedrock', 'mode': 'chat', 'supports_system_messages': None, 'supports_response_schema': None, 'supports_vision': False, 'supports_function_calling': False, 'supports_tool_choice': False, 'supports_assistant_prefill': False, 'supports_prompt_caching': False, 'supports_audio_input': False, 'supports_audio_output': False, 'supports_pdf_input': False, 'supports_embedding_image_input': False, 'supports_native_streaming': None, 'tpm': None, 'rpm': None, 'supported_openai_params': ['max_tokens', 'max_completion_tokens', 'stream', 'stream_options', 'stop', 'temperature', 'top_p', 'extra_headers', 'response_format']}
+Simple Prompt Result: Simple Prompt Response: The capital of France is Paris.
+JSON Output Result: 
+Tool Use Result: 
+
+Model: meta.llama3-70b-instruct-v1:0
+Status: Error - Error: litellm.BadRequestError: BedrockException - {"message":"This model doesn't support tool use."}
+Capabilities Summary: Model Capabilities: {'key': 'meta.llama3-70b-instruct-v1:0', 'max_tokens': 8192, 'max_input_tokens': 8192, 'max_output_tokens': 8192, 'input_cost_per_token': 2.65e-06, 'cache_creation_input_token_cost': None, 'cache_read_input_token_cost': None, 'input_cost_per_character': None, 'input_cost_per_token_above_128k_tokens': None, 'input_cost_per_query': None, 'input_cost_per_second': None, 'input_cost_per_audio_token': None, 'output_cost_per_token': 3.5e-06, 'output_cost_per_audio_token': None, 'output_cost_per_character': None, 'output_cost_per_token_above_128k_tokens': None, 'output_cost_per_character_above_128k_tokens': None, 'output_cost_per_second': None, 'output_cost_per_image': None, 'output_vector_size': None, 'litellm_provider': 'bedrock', 'mode': 'chat', 'supports_system_messages': None, 'supports_response_schema': None, 'supports_vision': False, 'supports_function_calling': False, 'supports_tool_choice': False, 'supports_assistant_prefill': False, 'supports_prompt_caching': False, 'supports_audio_input': False, 'supports_audio_output': False, 'supports_pdf_input': False, 'supports_embedding_image_input': False, 'supports_native_streaming': None, 'tpm': None, 'rpm': None, 'supported_openai_params': ['max_tokens', 'max_completion_tokens', 'stream', 'stream_options', 'stop', 'temperature', 'top_p', 'extra_headers', 'response_format']}
+Simple Prompt Result: Simple Prompt Response: The capital of France is Paris.
+JSON Output Result: 
+Tool Use Result: 
+
+Model: mistral.mistral-7b-instruct-v0:2
+Status: Success
+Execution Time: 1.84 seconds
+Tokens Used: 113
+Capabilities Summary: Model Capabilities: {'key': 'mistral.mistral-7b-instruct-v0:2', 'max_tokens': 8191, 'max_input_tokens': 32000, 'max_output_tokens': 8191, 'input_cost_per_token': 1.5e-07, 'cache_creation_input_token_cost': None, 'cache_read_input_token_cost': None, 'input_cost_per_character': None, 'input_cost_per_token_above_128k_tokens': None, 'input_cost_per_query': None, 'input_cost_per_second': None, 'input_cost_per_audio_token': None, 'output_cost_per_token': 2e-07, 'output_cost_per_audio_token': None, 'output_cost_per_character': None, 'output_cost_per_token_above_128k_tokens': None, 'output_cost_per_character_above_128k_tokens': None, 'output_cost_per_second': None, 'output_cost_per_image': None, 'output_vector_size': None, 'litellm_provider': 'bedrock', 'mode': 'chat', 'supports_system_messages': None, 'supports_response_schema': None, 'supports_vision': False, 'supports_function_calling': False, 'supports_tool_choice': True, 'supports_assistant_prefill': False, 'supports_prompt_caching': False, 'supports_audio_input': False, 'supports_audio_output': False, 'supports_pdf_input': False, 'supports_embedding_image_input': False, 'supports_native_streaming': None, 'tpm': None, 'rpm': None, 'supported_openai_params': ['max_tokens', 'max_completion_tokens', 'stream', 'stream_options', 'stop', 'temperature', 'top_p', 'extra_headers', 'response_format', 'tools', 'tool_choice']}
+Simple Prompt Result: Simple Prompt Response: The capital city of France is Paris. Paris is one of the most famous cities in the world and is known for its iconic landmarks such as the Eiffel Tower, the Louvre Museum, Notre-Dame Cathedral, and the Arc de Triomphe. It is also home to numerous cafes, shops, and parks, making it a popular tourist destination. Paris has a rich history and is considered a cultural and artistic hub of Europe.
+JSON Output Result: JSON Output Response (Parsed): {'capital': {'country': 'Germany', 'answer': 'Berlin'}}
+Tool Use Result: Tool Use Response: No tool call made. Model response: 
+To provide you with an accurate answer, I would need access to a reliable weather tool or API. However, I don't have that capability. I recommend checking a reputable weather website or app for the most current and accurate information for Brighton, United Kingdom. You can search for "weather in Brighton" in your preferred search engine or use a weather app to get the latest information.
+
+Model: mistral.mixtral-8x7b-instruct-v0:1
+Status: Success
+Execution Time: 2.59 seconds
+Tokens Used: 112
+Capabilities Summary: Model Capabilities: {'key': 'mistral.mixtral-8x7b-instruct-v0:1', 'max_tokens': 8191, 'max_input_tokens': 32000, 'max_output_tokens': 8191, 'input_cost_per_token': 4.5e-07, 'cache_creation_input_token_cost': None, 'cache_read_input_token_cost': None, 'input_cost_per_character': None, 'input_cost_per_token_above_128k_tokens': None, 'input_cost_per_query': None, 'input_cost_per_second': None, 'input_cost_per_audio_token': None, 'output_cost_per_token': 7e-07, 'output_cost_per_audio_token': None, 'output_cost_per_character': None, 'output_cost_per_token_above_128k_tokens': None, 'output_cost_per_character_above_128k_tokens': None, 'output_cost_per_second': None, 'output_cost_per_image': None, 'output_vector_size': None, 'litellm_provider': 'bedrock', 'mode': 'chat', 'supports_system_messages': None, 'supports_response_schema': None, 'supports_vision': False, 'supports_function_calling': False, 'supports_tool_choice': True, 'supports_assistant_prefill': False, 'supports_prompt_caching': False, 'supports_audio_input': False, 'supports_audio_output': False, 'supports_pdf_input': False, 'supports_embedding_image_input': False, 'supports_native_streaming': None, 'tpm': None, 'rpm': None, 'supported_openai_params': ['max_tokens', 'max_completion_tokens', 'stream', 'stream_options', 'stop', 'temperature', 'top_p', 'extra_headers', 'response_format', 'tools', 'tool_choice']}
+Simple Prompt Result: Simple Prompt Response: The capital city of France is Paris. Known for its beautiful cityscape, iconic landmarks such as the Eiffel Tower, Louvre Museum, and Notre-Dame, Paris is not only the capital but also the most populous city in France. It is located in the north-central part of the country, on the banks of the Seine River. Paris is a global center for art, fashion, gastronomy, and culture.
+JSON Output Result: JSON Output Response (Parsed): Could not parse JSON, raw response: {"answer": "Berlin"}
+
+For your information, Berlin has been the capital of Germany since the reunification of East and West Germany in 1990. It is the largest city in Germany by population and is known for its rich history, diverse culture, and significant influence in science, politics, education, and the arts.
+Tool Use Result: Tool Use Response: No tool call made. Model response: i am just a text-based AI and do not have the ability to access real-time weather data or use weather tools. However, I can search the web to provide you with the current weather in Brighton.
+
+As of my last update, the weather in Brighton is cloudy with a temperature of around 12°C. Please keep in mind that this information may not be up-to-date and I would recommend checking a reliable weather forecasting website or app for the most accurate information.
+
+Model: mistral.mistral-large-2402-v1:0
+Status: Success
+Execution Time: 2.35 seconds
+Tokens Used: 76
+Capabilities Summary: Model Capabilities: {'key': 'mistral.mistral-large-2402-v1:0', 'max_tokens': 8191, 'max_input_tokens': 32000, 'max_output_tokens': 8191, 'input_cost_per_token': 8e-06, 'cache_creation_input_token_cost': None, 'cache_read_input_token_cost': None, 'input_cost_per_character': None, 'input_cost_per_token_above_128k_tokens': None, 'input_cost_per_query': None, 'input_cost_per_second': None, 'input_cost_per_audio_token': None, 'output_cost_per_token': 2.4e-05, 'output_cost_per_audio_token': None, 'output_cost_per_character': None, 'output_cost_per_token_above_128k_tokens': None, 'output_cost_per_character_above_128k_tokens': None, 'output_cost_per_second': None, 'output_cost_per_image': None, 'output_vector_size': None, 'litellm_provider': 'bedrock', 'mode': 'chat', 'supports_system_messages': None, 'supports_response_schema': None, 'supports_vision': False, 'supports_function_calling': True, 'supports_tool_choice': True, 'supports_assistant_prefill': False, 'supports_prompt_caching': False, 'supports_audio_input': False, 'supports_audio_output': False, 'supports_pdf_input': False, 'supports_embedding_image_input': False, 'supports_native_streaming': None, 'tpm': None, 'rpm': None, 'supported_openai_params': ['max_tokens', 'max_completion_tokens', 'stream', 'stream_options', 'stop', 'temperature', 'top_p', 'extra_headers', 'response_format', 'tools', 'tool_choice']}
+Simple Prompt Result: Simple Prompt Response: The capital of France is Paris. Known as the "City of Light," Paris is famous for its iconic landmarks like the Eiffel Tower, Louvre Museum, Notre-Dame Cathedral, and more. It is also celebrated for its rich history, art, fashion, and gastronomy.
+JSON Output Result: JSON Output Response (Parsed): {'answer': 'Berlin'}
+Tool Use Result: Tool Use Response: {'answer': 'Weather information for Brighton, UK is not available in this simulation.'}
+
+--- Error Summary ---
+The following models encountered errors. See error log file 'litellm_bedrock_errors.log' for details.
+- meta.llama3-8b-instruct-v1:0: Error: litellm.BadRequestError: BedrockException - {"message":"This model doesn't support tool use."}
+- meta.llama3-70b-instruct-v1:0: Error: litellm.BadRequestError: BedrockException - {"message":"This model doesn't support tool use."}
+
+--- Test Completed ---
